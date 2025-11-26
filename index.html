@@ -4,22 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Absensi Karyawan</title>
-
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json">
-
-    <!-- Warna address bar Android -->
-    <meta name="theme-color" content="#0077cc">
 </head>
-
 <body>
+    <header class="app-header">
+        <h1>📋 Absensi Karyawan</h1>
+        <button id="toggleMode" class="mode-btn">🌙</button>
+    </header>
 
-    <h2>Form Absensi</h2>
+    <section class="form-card">
+        <h2>Form Absensi</h2>
 
-    <div class="form">
         <label>Nama Karyawan</label>
         <input type="text" id="nama" placeholder="Masukkan nama">
 
@@ -38,35 +33,26 @@
             <option>Night</option>
         </select>
 
-        <button onclick="simpanAbsensi()">Simpan Absen</button>
-    </div>
+        <button onclick="simpanAbsensi()">💾 Simpan Absen</button>
+    </section>
 
-    <h2>Data Absensi</h2>
+    <section class="data-card">
+        <h2>Data Absensi Hari Ini</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Divisi</th>
+                    <th>Shift</th>
+                    <th>Tanggal</th>
+                    <th>Jam</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="tabelData"></tbody>
+        </table>
+    </section>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Nama</th>
-                <th>Divisi</th>
-                <th>Shift</th>
-                <th>Tanggal</th>
-                <th>Jam</th>
-            </tr>
-        </thead>
-        <tbody id="tabelData"></tbody>
-    </table>
-
-    <!-- JS utama -->
     <script src="script.js"></script>
-
-    <!-- Register Service Worker -->
-    <script>
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("sw.js")
-                .then(() => console.log("Service Worker Registered"))
-                .catch(err => console.log("SW Failed:", err));
-        }
-    </script>
-
 </body>
 </html>
