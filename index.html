@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absensi Karyawan</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Warna address bar Android -->
+    <meta name="theme-color" content="#0077cc">
+</head>
+
+<body>
+
+    <h2>Form Absensi</h2>
+
+    <div class="form">
+        <label>Nama Karyawan</label>
+        <input type="text" id="nama" placeholder="Masukkan nama">
+
+        <label>Divisi</label>
+        <select id="divisi">
+            <option>Room Attendant</option>
+            <option>Public Area</option>
+            <option>Pool Attendant</option>
+            <option>Basement</option>
+        </select>
+
+        <label>Shift</label>
+        <select id="shift">
+            <option>M7 (Morning)</option>
+            <option>Middle</option>
+            <option>Night</option>
+        </select>
+
+        <button onclick="simpanAbsensi()">Simpan Absen</button>
+    </div>
+
+    <h2>Data Absensi</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Divisi</th>
+                <th>Shift</th>
+                <th>Tanggal</th>
+                <th>Jam</th>
+            </tr>
+        </thead>
+        <tbody id="tabelData"></tbody>
+    </table>
+
+    <!-- JS utama -->
+    <script src="script.js"></script>
+
+    <!-- Register Service Worker -->
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("sw.js")
+                .then(() => console.log("Service Worker Registered"))
+                .catch(err => console.log("SW Failed:", err));
+        }
+    </script>
+
+</body>
+</html>
